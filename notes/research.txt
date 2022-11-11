@@ -1,0 +1,6 @@
+
+Using aircrack-ng to monitor wireless network traffic:
+
+- discover connected hosts
+- discover routers
+

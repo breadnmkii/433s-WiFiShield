@@ -1,0 +1,12 @@
+Installed various packages:
+* aircrack-ng
+* dnsutils
+
+* Vim (finally)
+
+WiFi Shield Goals:
+1. Scan network for all connected hosts and devices
+2. Kick specific unauthorized hosts off the network
+	+ manually
+	+ physically
+3. GUI? Or CLI program

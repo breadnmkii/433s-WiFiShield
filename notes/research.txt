@@ -4,3 +4,8 @@ Using aircrack-ng to monitor wireless network traffic:
 - discover connected hosts
 - discover routers
 
+
+Various Scanning Methods
+- Use to determine state of a machine (and any open ports)
+* Ping Scan	(ICMP packet)
+* Stealth Scan 	(SYN/RST packets)

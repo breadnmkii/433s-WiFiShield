@@ -1,0 +1,15 @@
+=== Network Info ===
+Command Line
+* iwconfig: Obtain current router name and information
+* ifconfig: Obtain host network information
+
+
+
+
+=== nmap Scanning ===
+-sL: List targets for scanning
+-sn: Ping scan (gets host information)
+-Pn: skip host discovery (dont get info on host like in ping scan)
+-
+
+Last argument is ip address(es) to scan (use 0/24 for scanning range of last 8 bits)

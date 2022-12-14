@@ -114,7 +114,7 @@ searchScanlog() {
 HOSTtoIP() {
     echo -n "Enter hostname: "
     read HOSTNAME
-    echo "Resolving... "
+    echo "Resolving..."
     nslookup $HOSTNAME
 }
 

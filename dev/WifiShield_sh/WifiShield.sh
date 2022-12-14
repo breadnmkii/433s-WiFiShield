@@ -31,6 +31,7 @@ BLACKLIST_PATH="blacklist.txt"
 
 ## Globals
 sys_init=""
+sys_errors=""
 usr_input=""
 SSID=
 WLAN_NAME=
@@ -275,23 +276,32 @@ init () {
     then
         echo "ip command must be available!"
         sys_init="error!"
+        sys_errors="${sys_errors}ip cmd error! "
     fi
     if ! command -v iw &> /dev/null || ! command -v iwgetid &> /dev/null || ! command -v iwconfig &> /dev/null
     then
         echo "iw command must be available!" 
         sys_init="error!"
+        sys_errors="${sys_errors}iw cmd error! "
+        WLAN_NAME="error!"
     fi
     if ! command -v airmon-ng &> /dev/null || ! command -v airodump-ng &> /dev/null || ! command -v aireplay-ng &> /dev/null
     then
         echo "Aircrack tools must be installed!" 
         sys_init="error!"
+        sys_errors="${sys_errors}aircrack cmd error! "
     fi
     if ! command -v nmap &> /dev/null
     then
         echo "nmap tools must be installed!"
         sys_init="error!"
+        sys_errors="${sys_errors}nmap cmd error! "
     fi
-    sys_init="nominal"
+    
+    if [[ sys_init == "" ]]
+    then
+        sys_init="nominal"
+    fi
 
     # Initialize globals
     SSID=$(iwgetid -r)

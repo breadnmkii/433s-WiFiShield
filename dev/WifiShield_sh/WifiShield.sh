@@ -42,9 +42,10 @@ main ()
                     <      WiFi-Shield v0.0.1      >
                       <                          >
                         ========================
+
 System: $sys_init
 Shielding: ($SSID)
-            \n\n\n\n\n\n"
+            \n\n\n\n"
     echo "Welcome! Select one of the following actions..."
     printl
     echo "[0] Exit  [1] Network Info Utility    [2] Shield Utility"

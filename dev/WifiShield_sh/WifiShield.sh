@@ -233,7 +233,7 @@ IPtoMAC() {
 ## Aircrack-ng utility
 # Spawns new bash window to deauth MAC addresses listed in "blacklist.txt" file
 runBlacklist () {
-    ./deauthBlacklist.sh $WLAN_MAC $WLAN_NAME
+    ./deauthBlacklist.sh "$WLAN_MAC" "$WLAN_NAME"
 }
 
 # Enables monitoring of wireless traffic

@@ -14,8 +14,8 @@
 # [3] Scan for hosts on network         √
 # [4] Scan IP                           √    
 # [5] Scanlog Search                    √
-# [6] Resolve Hostname > IP
-# [7] Resolve IP > MAC
+# [6] Resolve Hostname > IP             √
+# [7] Resolve IP > MAC                  √
 
 # Shield Utility (WARN: entering shield utility disables your wireless connection!!!)
 # READ: Confirm? [Y\n]

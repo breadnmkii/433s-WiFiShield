@@ -29,6 +29,7 @@ SCANLOG_PATH="netscan.log"
 
 ## Globals
 sys_init="error!"
+usr_input=""
 SSID=
 WLAN_NAME=
 WLAN_MON=
@@ -52,11 +53,18 @@ System: $sys_init
 Shielding: ($SSID)
             \n\n\n\n"
     echo "Welcome! Select one of the following actions..."
-    printl
-    echo "[0] Exit  [1] Network Info Utility    [2] Shield Utility"
-    printl
+    while [ usr_input != 0 ]
+    do    
+        printl
+        echo "[0] Exit  [1] Network Info Utility    [2] Shield Utility"
+        printl
+        echo -n "Select: "
+        read usr_input
 
-    HOSTtoIP
+    done
+    
+    echo "Shield: OFF"
+    echo "Goodbye!"
     
 }
 

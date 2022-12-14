@@ -40,9 +40,8 @@ main ()
                       <                          >
                     <      WiFi-Shield v0.0.1      >
                       <                          >
-                        ========================
-            
-                            ($SSID)
+                        ======================== 
+Shielding: ($SSID)
             \n\n\n\n\n\n"
     echo "Welcome! Select one of the following actions..."
     printl

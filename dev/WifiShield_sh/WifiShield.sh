@@ -62,7 +62,17 @@ Shielding: ($SSID)
             # Network Utility
             while [[ $usr_input != "0" ]]
             do
-                printUI "exit"
+                printUI 
+"
+[0] Back
+[1] Get Network Info
+[2] Get Router Info
+[3] Scan for Hosts on Network
+[4] Scan IP
+[5] Scanlog Search
+[6] Resolve Hostname > IP
+[7] Resolve IP > MAC
+"
             done
             usr_input=""
         fi

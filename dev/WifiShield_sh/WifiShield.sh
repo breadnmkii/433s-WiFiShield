@@ -60,7 +60,7 @@ Shielding: ($SSID)
         printl
         echo -n "Select: "
         read usr_input
-        echo $usr_input
+        echo $usr_input == "0"
 
     done
     

@@ -298,7 +298,7 @@ init () {
         sys_errors="${sys_errors}nmap cmd error! "
     fi
     
-    if [[ sys_init == "nominal" ]]
+    if [[ $sys_init == "nominal" ]]
     then
         sys_errors="none"
     fi

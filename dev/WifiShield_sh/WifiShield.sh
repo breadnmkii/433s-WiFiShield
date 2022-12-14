@@ -74,7 +74,8 @@ Shielding: ($SSID)
                         [7] Resolve IP > MAC\t
                         "
                 case $usr_input in
-
+                    "0")
+                        echo "Returning to main menu"
                     "1")
                         echo "1"
                     ;;

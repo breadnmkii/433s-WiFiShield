@@ -284,7 +284,6 @@ init () {
         echo "iw command must be available!" 
         sys_init="error!"
         sys_errors="${sys_errors}iw cmd error! "
-        WLAN_NAME="error!"
     fi
     if ! command -v airmon-ng &> /dev/null || ! command -v airodump-ng &> /dev/null || ! command -v aireplay-ng &> /dev/null
     then
@@ -312,7 +311,8 @@ init () {
     GATEWAY=$(ip route | grep default | grep $WLAN_NAME | grep -oP '(?<=via )\w+.\w+.\w+.\w+')
     GATEWAY_24=$(ip route | grep default | grep $WLAN_NAME | grep -oP '(?<=via )\w+.\w+.\w+.')
 
-    
+    echo -e "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"
+   
 }
 
 

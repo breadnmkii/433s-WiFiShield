@@ -80,6 +80,7 @@ scanNetwork() {
     echo -n "Range to scan (e.g. 0-31, or empty for 0-255): "
     read NET_RANGE
     echo $WLAN_NAME
+    echo $WLAN_MON
     echo $GATEWAY_24
     echo $NET_RANGE
     if [ -z $network_range ]

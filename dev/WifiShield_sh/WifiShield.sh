@@ -32,6 +32,8 @@ sys_init="error!"
 SSID=
 WLAN_NAME=
 WLAN_MON=
+WLAN_MAC=
+WLAN_CHN=
 GATEWAY=
 
 ## Main Script
@@ -137,7 +139,7 @@ init () {
     # Check if ran as root
     if [ "$EUID" -ne 0 ]
     then 
-        echo "run as root"
+        echo "Run as root"
         exit
     fi
     
@@ -166,6 +168,8 @@ init () {
     SSID=$(iwgetid -r)
     WLAN_NAME=$(iwgetid | grep -o '^.* ' | xargs)
     WLAN_MON="${WLAN_NAME}mon"
+    WLAN_MAC=$(iwgetid -ar)
+    WLAN_CHN=$(iw)
     GATEWAY=$(ip route | grep default | grep $WLAN_NAME | grep -oP '(?<=via )\w+.\w+.\w+.\w+')
     GATEWAY_24=$(ip route | grep default | grep $WLAN_NAME | grep -oP '(?<=via )\w+.\w+.\w+.')
 

@@ -154,17 +154,17 @@ init () {
     # Check dependencies
     if ! command -v ifconfig &> /dev/null
     then
-        echo "ifconfig command must be installed!" 
-        exit
-    fi
-    if ! command -v iwconfig &> /dev/null
-    then
-        echo "iwconfig command must be installed!" 
+        echo "ifconfig command must be available!" 
         exit
     fi
     if ! command -v ip &> /dev/null
     then
-        echo "ip command must be installed!" 
+        echo "ip command must be available!" 
+        exit
+    fi
+    if ! command -v iw &> /dev/null || ! command -v iwgetid &> /dev/null || ! command -v iwconfig &> /dev/null
+    then
+        echo "iw command must be available!" 
         exit
     fi
     if ! command -v airmon-ng &> /dev/null || ! command -v airodump-ng &> /dev/null || ! command -v aireplay-ng &> /dev/null

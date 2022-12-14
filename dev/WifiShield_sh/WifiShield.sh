@@ -96,6 +96,7 @@ Shielding: ($SSID)
                     "7")
                         echo "7"
                     ;;
+                esac
             done
             usr_input=""
         fi

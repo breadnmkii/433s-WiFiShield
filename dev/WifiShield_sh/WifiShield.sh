@@ -114,7 +114,7 @@ searchScanlog() {
 
 # resolve IP to MAC
 IPtoMAC() {
-    echo "Enter IP address: "
+    echo -n "Enter IP address: "
     read IP_ADDR
     MAC_ADDR=$(arp -a $IP_ADDR | grep -oP '(?<=at )\w+')
     echo -n "$IP_ADDR > $MAC_ADDR"

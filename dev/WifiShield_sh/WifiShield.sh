@@ -41,7 +41,7 @@ GATEWAY=
 ## Main Script
 main ()
 {
-    #init
+    init
 
     while [[ $usr_input != "0" ]]
     do  

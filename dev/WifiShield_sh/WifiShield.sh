@@ -11,15 +11,14 @@
 # [0] Back
 # [1] Get Network info                  √
 # [2] Get Router info                   √
-# [3] Scan for hosts on network
-# [4] Scan IP
+# [3] Scan for hosts on network         √
+# [4] Scan IP                           
 # [5] Scanlog Search
 # [6] Resolve Hostname > IP
 # [7] Resolve IP > MAC
 
 # Shield Utility (WARN: entering shield utility disables your wireless connection!!!)
 # READ: Confirm? [Y\n]
-# READ: Enter SSID to Shield
 #  [0] Back
 #  [1] Run Blacklist    (simple deauth packet stream)
 #  [2] Run Whitelist    (airodump, deauth any device not matching whitelist mac)
@@ -40,7 +39,7 @@ main ()
                         ========================
                       <                          >
                     <      WiFi-Shield v0.0.1      >
-                      <                          >
+                      <     on ($SSID)           >
                         ========================
             \n\n\n\n\n\n"
     echo "Welcome! Select one of the following actions..."

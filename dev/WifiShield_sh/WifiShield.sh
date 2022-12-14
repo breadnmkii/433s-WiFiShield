@@ -83,7 +83,7 @@ scanNetwork() {
     echo $WLAN_MON
     echo $GATEWAY_24
     echo $NET_RANGE
-    if [ -z $network_range ]
+    if [ -z $NET_RANGE ]
     then
         echo "what"
 	    echo "Scanning ${GATEWAY_24}0-255...";

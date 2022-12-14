@@ -21,18 +21,19 @@
 # READ: Confirm? [Y\n]
 #  [0] Back
 #  [1] Run Blacklist    (simple deauth packet stream)
-#  [2] Run Whitelist    (airodump, deauth any device not matching whitelist mac)
+#  [2] Monitor Network
+#  [3] Deauth MAC
 #
 
 ## Constants
 SCANLOG_PATH="netscan.log"
+BLACKLIST_PATH="blacklist.txt"
 
 ## Globals
 sys_init="error!"
 usr_input=""
 SSID=
 WLAN_NAME=
-WLAN_MON=
 WLAN_MAC=
 WLAN_CHN=
 GATEWAY=
@@ -113,11 +114,37 @@ Shielding: ($SSID)
             read usr_input
             if [[ $usr_input == "Y" || $usr_input == "y" ]]
             then
+                echo "Putting wireless interface into monitor mode..."
+                airmon-ng start $WLAN_NAME
+                WLAN_NAME=$(iwgetid | grep -o '^.* ' | xargs)
+
                 while [[ $usr_input != "0" ]]
                 do
                     printUI "[0] Back\t[1]Run Blacklist\t[2]Run Whitelist"
+                    case $usr_input in
+                    "0")
+                        echo "Returning to main menu"
+                    ;;
+                    "1")
+                        runBlacklist
+                    ;;
+                    "2")
+                        airMonitor
+                    ;;
+                    "3")
+                        deauthMAC
+                    ;;
+                    *) 
+                        echo "unrecognized action"
+                    ;;
+                esac
                 done
             fi
+
+            echo "Exiting monitor mode..."
+            airmon-ng stop $WLAN_NAME
+            WLAN_NAME=$(iwgetid | grep -o '^.* ' | xargs)
+
             usr_input=""
         fi
 
@@ -169,9 +196,9 @@ scanNetwork() {
 
 # Scans specified ip
 scanIP() {
-    echo -n "IP to port scan: "
+    echo -n "IP to aggressive scan: "
     read NET_SCAN
-    nmap -Pn $NET_SCAN
+    nmap -A -T4 $NET_SCAN
 }
 
 # Simple search ScanLog for sed matches
@@ -200,6 +227,24 @@ IPtoMAC() {
 }
 
 ## Aircrack-ng utility
+# Spawns new bash window to deauth MAC addresses listed in "blacklist.txt" file
+runBlacklist () {
+    ./deauthBlacklist.sh $WLAN_MAC $WLAN_NAME
+}
+
+# Enables monitoring of wireless traffic
+airMonitor() {
+    echo $WLAN_NAME
+    echo $WLAN_CHN
+    echo "airodump-ng $WLAN_NAME --bssid $WLAN_MAC --channel $WLAN_CHN"
+}
+
+# Manual deauthentication of device given MAC address
+deauthMAC() {
+    echo "Target MAC: "
+    read TGT_MAC
+    aireplay-ng --deauth 1 -c $TGT_MAC -a $WLAN_MAC $WLAN_NAME
+}
 
 ## Helper utility
 printl () {
@@ -241,11 +286,13 @@ init () {
         exit
     fi
 
+    # Check files
+
+
     SSID=$(iwgetid -r)
     WLAN_NAME=$(iwgetid | grep -o '^.* ' | xargs)
-    WLAN_MON="${WLAN_NAME}mon"
     WLAN_MAC=$(iwgetid -ar)
-    WLAN_CHN=$(iw)
+    WLAN_CHN=$(iw dev | grep -oP '(?<=channel )\d+')
     GATEWAY=$(ip route | grep default | grep $WLAN_NAME | grep -oP '(?<=via )\w+.\w+.\w+.\w+')
     GATEWAY_24=$(ip route | grep default | grep $WLAN_NAME | grep -oP '(?<=via )\w+.\w+.\w+.')
 

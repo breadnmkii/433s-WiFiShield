@@ -79,22 +79,22 @@ Shielding: ($SSID)
                         echo "1"
                     ;;
                     "2")
-                        echo "1"
+                        echo "2"
                     ;;
                     "3")
-                        echo "1"
+                        echo "3"
                     ;;
                     "4")
-                        echo "1"
+                        echo "4"
                     ;;
                     "5")
-                        echo "1"
+                        echo "5"
                     ;;
                     "6")
-                        echo "1"
+                        echo "6"
                     ;;
                     "7")
-                        echo "1"
+                        echo "7"
                     ;;
             done
             usr_input=""

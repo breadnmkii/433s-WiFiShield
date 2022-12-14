@@ -55,6 +55,7 @@ main ()
                         ========================
 
 System: $sys_init
+Errors: $sys_errors
 Shielding: ($SSID)
             \n\n\n\n"
         echo "Welcome! Select one of the following actions..."

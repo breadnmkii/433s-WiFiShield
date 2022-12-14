@@ -107,7 +107,7 @@ scanIP() {
 searchScanlog() {
     echo -n "Enter key searchterm: "
     read KEY_SEARCH
-    cat $SCANLOG_PATH | grep $KEY_SEARCH
+    cat $SCANLOG_PATH | grep -A4 $KEY_SEARCH
 }
 
 ## Aircrack-ng utility

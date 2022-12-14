@@ -78,14 +78,17 @@ getRouterinfo() {
 # Scans network the user is connected to
 scanNetwork() {
     echo -n "Range to scan (e.g. 0-31, or empty for 0-255): "
-    read network_range
+    read NET_RANGE
+    echo $WLAN_NAME
+    echo $GATEWAY_24
+    echo $NET_RANGE
     if [ -z $network_range ]
     then
 	echo "Scanning ${GATEWAY_24}0-255...";
         nmap -sS "${GATEWAY_24}0/24" > netscan.log
     else
-		echo "Scanning ${GATEWAY_24}${network_range}...";
-        nmap -sS "${GATEWAY_24}${network_range}" > netscan.log
+        echo "Scanning ${GATEWAY_24}${NET_RANGE}...";
+        nmap -sS "${GATEWAY_24}${NET_RANGE}" > netscan.log
     fi
 	echo "Scanning complete! Check netscan.log or use Scanlog Search"
     
@@ -129,8 +132,8 @@ init () {
 
     WLAN_NAME=$(ip route | grep default | grep -oP '(?<=dev )\w+')
     WLAN_MON="${WLAN_NAME}mon"
-    GATEWAY=$(ip route | grep default | grep -oP '(?<=via )\w+.\w+.\w+.\w+')
-    GATEWAY_24=$(ip route | grep default | grep -oP '(?<=via )\w+.\w+.\w+.')
+    GATEWAY=$(ip route | grep default | grep $WLAN_NAME | grep -oP '(?<=via )\w+.\w+.\w+.\w+')
+    GATEWAY_24=$(ip route | grep default | grep $WLAN_NAME | grep -oP '(?<=via )\w+.\w+.\w+.')
 }
 
 

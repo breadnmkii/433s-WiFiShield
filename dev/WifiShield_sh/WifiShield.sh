@@ -53,7 +53,7 @@ System: $sys_init
 Shielding: ($SSID)
             \n\n\n\n"
     echo "Welcome! Select one of the following actions..."
-    while [ $usr_input != "0" ]
+    while [[ $usr_input != "0" ]]
     do    
         printl
         echo "[0] Exit  [1] Network Info Utility    [2] Shield Utility"

@@ -13,7 +13,7 @@
 # [2] Get Router info                   √
 # [3] Scan for hosts on network
 # [4] Scan IP
-# [5] Search scan data for string 
+# [5] Scanlog Search
 # [6] Resolve Hostname > IP
 # [7] Resolve IP > MAC
 
@@ -34,7 +34,6 @@ GATEWAY=
 ## Main Script
 main ()
 {
-    scanNetwork
     init
     printl
     echo -e "
@@ -48,6 +47,8 @@ main ()
     printl
     echo "[0] Exit  [1] Network Info Utility    [2] Shield Utility"
     printl
+    getNetinfo
+    scanNetwork
     
 }
 
@@ -76,14 +77,17 @@ getRouterinfo() {
 ## Nmap utility
 # Scans network the user is connected to
 scanNetwork() {
-    echo -n "Enter range to scan (or empty for entire range): "
+    echo -n "Range to scan (e.g. 0-31, or empty for 0-255): "
     read network_range
     if [ -z $network_range ]
     then
-        nmap 
+		echo "Scanning ${GATEWAY_24}0-255...";
+        nmap -sS "${GATEWAY_24}0/24" > netscan.log
     else
-        echo "you passed in $network_range"
+		echo "Scanning ${GATEWAY_24}${network_range}...";
+        nmap -sS "${GATEWAY_24}${network_range}" > netscan.log
     fi
+	echo "Scanning complete! Check netscan.log or use Scanlog Search"
     
 }
 
@@ -125,8 +129,8 @@ init () {
 
     WLAN_NAME=$(ip route | grep default | grep -oP '(?<=dev )\w+')
     WLAN_MON="${WLAN_NAME}mon"
-    GATEWAY=$(ip route | grep default | grep -oP '(?<=via )\w+\.\w+\.\w+\.\w+')
-    GAETWAY_24=$(ip route | grep default | grep -oP '(?<=via )\w+\.\w+\.\w+\.')
+    GATEWAY=$(ip route | grep default | grep -oP '(?<=via )\w+.\w+.\w+.\w+')
+    GATEWAY_24=$(ip route | grep default | grep -oP '(?<=via )\w+.\w+.\w+.')
 }
 
 

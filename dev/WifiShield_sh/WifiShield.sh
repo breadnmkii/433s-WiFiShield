@@ -170,7 +170,7 @@ printl () {
 
 printUI () {
     printl
-    echo $1
+    echo -e $1
     printl
     echo -n "Select: "
     read usr_input

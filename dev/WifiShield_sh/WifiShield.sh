@@ -1,25 +1,40 @@
-#!/usr/bin/bash
+#!/bin/bash
 
 # Bash script for WifiShield Functionality
 # 
-# Network information gatherer:
-#   - provide useful information about your router and device
-#   - lists connected devices to network
-#   - filters for actual user devices
+# Welcome Screen
+# [0] Exit
+# [1] Network Utility
+# [2] Shield Utilty
 #
-# Shield
-#   - reads blacklist and whitelist of MAC addresses
-#   - continuously sends deauth packets to 
+# Network Utility
+# [0] Back
+# [1] Get Network info                  √
+# [2] Get Router info                   √
+# [3] Scan for hosts on network
+# [4] Scan IP
+# [5] Search scan data for string 
+# [6] Resolve Hostname > IP
+# [7] Resolve IP > MAC
+
+# Shield Utility (WARN: entering shield utility disables your wireless connection!!!)
+# READ: Confirm? [Y\n]
+# READ: Enter SSID to Shield
+#  [0] Back
+#  [1] Run Blacklist    (simple deauth packet stream)
+#  [2] Run Whitelist    (airodump, deauth any device not matching whitelist mac)
 #
 
 ## Globals
-WCARD_NAME=
+SSID=
+WLAN_NAME=
+WLAN_MON=
 GATEWAY=
 
 ## Main Script
 main ()
 {
-    echo "Initializing script..."
+    scanNetwork
     init
     printl
     echo -e "
@@ -33,20 +48,21 @@ main ()
     printl
     echo "[0] Exit  [1] Network Info Utility    [2] Shield Utility"
     printl
-    getRouterinfo
+    
 }
 
 ## Network info functions:
-
 # Gets basic information about network
 getNetinfo() {
     echo "===================="
     echo     "Network Info"
     echo "===================="
     echo -en "Wireless Card:\t"
-    echo $WCARD_NAME 
+    echo $WLAN_NAME 
     echo -en "Gateway:\t"
     echo $GATEWAY
+    echo -e "Specific Info:"
+    echo $(ifconfig $WNAME_CARD)
 }
 
 # Gets information about router
@@ -54,10 +70,23 @@ getRouterinfo() {
     echo "===================="
     echo     "Router Info"
     echo "===================="
-    iwconfig
+    iwconfig $WLAN_NAME
 }
 
 ## Nmap utility
+# Scans network the user is connected to
+scanNetwork() {
+    echo -n "Enter range to scan (or empty for entire range): "
+    read network_range
+    if [ -z $network_range ]
+    then
+        nmap 
+    else
+        echo "you passed in $network_range"
+    fi
+    
+}
+
 
 ## Aircrack-ng utility
 
@@ -65,8 +94,39 @@ getRouterinfo() {
 
 # Initializes script variables
 init () {
-    WCARD_NAME=$(ip route | grep default | grep -oP '(?<=dev )\w+')
-    GATEWAY=$(ip route | grep default | grep -oP '(?<=via )\w+.\w+.\w+.\w+')
+    # Check if ran as root
+    if [ "$EUID" -ne 0 ]
+    then 
+        echo "run as root"
+        exit
+    fi
+    
+    # Check dependencies
+    if ! command -v ifconfig &> /dev/null
+    then
+        echo "ifconfig command must be installed!" 
+        exit
+    fi
+    if ! command -v iwconfig &> /dev/null
+    then
+        echo "iwconfig command must be installed!" 
+        exit
+    fi
+    if ! command -v ip &> /dev/null
+    then
+        echo "ip command must be installed!" 
+        exit
+    fi
+    if ! command -v airmon-ng &> /dev/null || ! command -v airodump-ng &> /dev/null || ! command -v aireplay-ng &> /dev/null
+    then
+        echo "Aircrack tools must be installed!" 
+        exit
+    fi
+
+    WLAN_NAME=$(ip route | grep default | grep -oP '(?<=dev )\w+')
+    WLAN_MON="${WLAN_NAME}mon"
+    GATEWAY=$(ip route | grep default | grep -oP '(?<=via )\w+\.\w+\.\w+\.\w+')
+    GAETWAY_24=$(ip route | grep default | grep -oP '(?<=via )\w+\.\w+\.\w+\.')
 }
 
 

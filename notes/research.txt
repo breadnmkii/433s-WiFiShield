@@ -4,8 +4,18 @@ Using aircrack-ng to monitor wireless network traffic:
 - discover connected hosts
 - discover routers
 
+Network
+(BSSIDS, etc) https://www.juniper.net/documentation/en_US/junos-space-apps/network-director3.7/topics/concept/wireless-ssid-bssid-essid.html
+
 
 Various Scanning Methods
 - Use to determine state of a machine (and any open ports)
 * Ping Scan	(ICMP packet)
 * Stealth Scan 	(SYN/RST packets)
+https://nmap.org/book/man-port-scanning-techniques.html
+
+
+Deauth
+https://hackernoon.com/forcing-a-device-to-disconnect-from-wifi-using-a-deauthentication-attack-f664b9940142
+https://hackernoon.com/forcing-a-device-to-disconnect-from-wifi-using-a-deauthentication-attack-f664b9940142
+https://blog.spacehuhn.com/wifi-deauthentication-frame#heading-structure-of-a-deauthentication-frame

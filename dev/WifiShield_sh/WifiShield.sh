@@ -25,7 +25,7 @@
 #
 
 ## Constants
-OUTPUT_SCANLOG="netscan.log"
+SCANLOG_PATH="netscan.log"
 
 ## Globals
 sys_init="error!"
@@ -88,10 +88,10 @@ scanNetwork() {
     if [ -z $NET_RANGE ]
     then
 	    echo "Scanning ${GATEWAY_24}0-255...";
-        nmap -sS "${GATEWAY_24}0/24" > netscan.log
+        nmap -sS "${GATEWAY_24}0/24" > $SCANLOG_PATH
     else
         echo "Scanning ${GATEWAY_24}${NET_RANGE}...";
-        nmap -sS "${GATEWAY_24}${NET_RANGE}" > netscan.log
+        nmap -sS "${GATEWAY_24}${NET_RANGE}" > $SCANLOG_PATH
     fi
 	echo "Scanning complete! Check netscan.log or use Scanlog Search"
 }

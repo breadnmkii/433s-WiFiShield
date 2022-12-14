@@ -1,0 +1,82 @@
+Starting Nmap 7.80 ( https://nmap.org ) at 2022-11-29 15:51 CST
+Nmap scan report for 172.27.99.12
+Host is up (0.0020s latency).
+MAC Address: D2:43:C5:1A:B2:51 (Unknown)
+Nmap scan report for 172.27.99.23
+Host is up (0.0039s latency).
+MAC Address: 14:91:38:B1:32:91 (Amazon Technologies)
+Nmap scan report for 172.27.99.52
+Host is up (0.0020s latency).
+MAC Address: 48:A5:E7:3B:7A:99 (Nintendo)
+Nmap scan report for iqoo-5-pro.dhcp.wustl.edu (172.27.99.56)
+Host is up (0.0022s latency).
+MAC Address: 3A:57:B9:5E:FA:19 (Unknown)
+Nmap scan report for 172.27.99.70
+Host is up (0.0019s latency).
+MAC Address: A4:83:E7:1F:EA:C9 (Apple)
+Nmap scan report for lola.dhcp.wustl.edu (172.27.99.85)
+Host is up (0.0024s latency).
+MAC Address: E8:F4:08:32:51:72 (Unknown)
+Nmap scan report for nicoles-mbp.dhcp.wustl.edu (172.27.99.87)
+Host is up (0.0026s latency).
+MAC Address: E0:B5:5F:ED:AD:CE (Apple)
+Nmap scan report for 172.27.99.137
+Host is up (0.0040s latency).
+MAC Address: 9C:76:0E:89:F7:54 (Unknown)
+Nmap scan report for samsung-galaxy-s7.dhcp.wustl.edu (172.27.99.142)
+Host is up (0.0021s latency).
+MAC Address: 2C:0E:3D:31:BC:9F (Samsung Electro-mechanics(thailand))
+Nmap scan report for 172.27.99.155
+Host is up (0.0019s latency).
+MAC Address: F4:D4:88:73:32:51 (Unknown)
+Nmap scan report for dmendez-2022.dhcp.wustl.edu (172.27.99.156)
+Host is up (0.0019s latency).
+MAC Address: 0C:7A:15:8F:DC:7F (Intel Corporate)
+Nmap scan report for 172.27.99.165
+Host is up (0.0025s latency).
+MAC Address: B6:76:36:65:A2:01 (Unknown)
+Nmap scan report for desktop-8fqbcn8.dhcp.wustl.edu (172.27.99.180)
+Host is up (0.0023s latency).
+MAC Address: 90:CC:DF:D1:31:52 (Intel Corporate)
+Nmap scan report for 172.27.99.184
+Host is up (0.0023s latency).
+MAC Address: 1E:8E:F6:A0:38:DB (Unknown)
+Nmap scan report for laptop-knocgsrd.dhcp.wustl.edu (172.27.99.190)
+Host is up (0.0019s latency).
+MAC Address: 28:DF:EB:B2:F3:90 (Unknown)
+Nmap scan report for camera-27.dhcp.wustl.edu (172.27.99.191)
+Host is up (0.0019s latency).
+MAC Address: B0:C5:54:10:0D:AE (D-Link International)
+Nmap scan report for 172.27.99.204
+Host is up (0.0045s latency).
+MAC Address: 8E:23:0D:E1:C3:20 (Unknown)
+Nmap scan report for 172.27.99.215
+Host is up (0.0021s latency).
+MAC Address: BE:1F:57:5A:90:F3 (Unknown)
+Nmap scan report for 172.27.99.216
+Host is up (0.0021s latency).
+MAC Address: BC:D0:74:4E:9D:BE (Unknown)
+Nmap scan report for 172.27.99.218
+Host is up (0.0021s latency).
+MAC Address: 9C:3E:53:6E:46:65 (Unknown)
+Nmap scan report for 172.27.99.226
+Host is up (0.0028s latency).
+MAC Address: FE:ED:3E:92:CD:2E (Unknown)
+Nmap scan report for 172.27.99.249
+Host is up (0.0025s latency).
+MAC Address: 80:E0:1D:D6:EC:FF (Cisco Systems)
+Nmap scan report for 172.27.99.250
+Host is up (0.0020s latency).
+MAC Address: 00:27:E3:B4:45:6B (Cisco Systems)
+Nmap scan report for vl2199-sgl-svc.nts.wustl.edu (172.27.99.252)
+Host is up (0.0020s latency).
+MAC Address: 00:27:E3:B4:4A:8D (Cisco Systems)
+Nmap scan report for vl2199-eps-svc.nts.wustl.edu (172.27.99.253)
+Host is up (0.0020s latency).
+MAC Address: 00:27:E3:B4:47:BD (Cisco Systems)
+Nmap scan report for vl2199-hsrp.nts.wustl.edu (172.27.99.254)
+Host is up (0.0020s latency).
+MAC Address: 00:08:E3:FF:FD:EC (Cisco Systems)
+Nmap scan report for breadn-ubuntu.dhcp.wustl.edu (172.27.99.34)
+Host is up.
+Nmap done: 256 IP addresses (27 hosts up) scanned in 1.28 seconds

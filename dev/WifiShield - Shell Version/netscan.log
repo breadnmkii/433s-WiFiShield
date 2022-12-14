@@ -1,0 +1,75 @@
+Starting Nmap 7.91 ( https://nmap.org ) at 2022-12-14 15:16 CST
+Stats: 0:00:12 elapsed; 248 hosts completed (7 up), 7 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 35.81% done; ETC: 15:17 (0:00:02 remaining)
+Stats: 0:01:09 elapsed; 248 hosts completed (7 up), 7 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 63.68% done; ETC: 15:18 (0:00:34 remaining)
+Stats: 0:01:48 elapsed; 248 hosts completed (7 up), 7 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 74.36% done; ETC: 15:19 (0:00:34 remaining)
+Stats: 0:03:21 elapsed; 248 hosts completed (7 up), 7 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 90.23% done; ETC: 15:20 (0:00:21 remaining)
+Stats: 0:05:10 elapsed; 248 hosts completed (7 up), 7 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 91.50% done; ETC: 15:22 (0:00:28 remaining)
+Stats: 0:05:14 elapsed; 248 hosts completed (7 up), 7 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 91.57% done; ETC: 15:22 (0:00:28 remaining)
+Stats: 0:06:50 elapsed; 248 hosts completed (7 up), 7 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 93.68% done; ETC: 15:24 (0:00:27 remaining)
+Stats: 0:08:21 elapsed; 248 hosts completed (7 up), 7 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 95.70% done; ETC: 15:25 (0:00:22 remaining)
+Nmap scan report for 192.168.2.1
+Host is up (0.0099s latency).
+Not shown: 999 closed ports
+PORT   STATE SERVICE
+80/tcp open  http
+MAC Address: B4:75:0E:24:EB:86 (Belkin International)
+
+Nmap scan report for 192.168.2.2
+Host is up (0.011s latency).
+All 1000 scanned ports on 192.168.2.2 are closed
+MAC Address: 00:0E:08:1B:91:C9 (Cisco-Linksys)
+
+Nmap scan report for 192.168.2.4
+Host is up (0.014s latency).
+Not shown: 996 closed ports
+PORT     STATE    SERVICE
+53/tcp   open     domain
+80/tcp   filtered http
+554/tcp  open     rtsp
+9000/tcp open     cslistener
+MAC Address: 04:17:B6:13:59:A8 (Unknown)
+
+Nmap scan report for 192.168.2.6
+Host is up (0.0092s latency).
+Not shown: 998 closed ports
+PORT      STATE SERVICE
+49176/tcp open  unknown
+62078/tcp open  iphone-sync
+MAC Address: 0E:5E:CC:9F:F3:69 (Unknown)
+
+Nmap scan report for 192.168.2.7
+Host is up (0.045s latency).
+Not shown: 998 closed ports
+PORT      STATE SERVICE
+49152/tcp open  unknown
+62078/tcp open  iphone-sync
+MAC Address: 76:29:AC:F5:21:58 (Unknown)
+
+Nmap scan report for 192.168.2.8
+Host is up (0.018s latency).
+All 1000 scanned ports on 192.168.2.8 are closed (600) or filtered (400)
+MAC Address: 04:03:D6:72:D7:60 (Nintendo)
+
+Nmap scan report for 192.168.2.9
+Host is up (0.12s latency).
+All 1000 scanned ports on 192.168.2.9 are filtered
+MAC Address: 98:E0:D9:9E:E2:1F (Apple)
+
+Nmap scan report for 192.168.2.11
+Host is up (0.000020s latency).
+Not shown: 996 closed ports
+PORT     STATE SERVICE
+22/tcp   open  ssh
+53/tcp   open  domain
+5000/tcp open  upnp
+7000/tcp open  afs3-fileserver
+
+Nmap done: 256 IP addresses (8 hosts up) scanned in 695.33 seconds

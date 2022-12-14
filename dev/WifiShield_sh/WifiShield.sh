@@ -63,15 +63,15 @@ Shielding: ($SSID)
             while [[ $usr_input != "0" ]]
             do
                 printUI "
-[0] Back
-[1] Get Network Info
-[2] Get Router Info
-[3] Scan for Hosts on Network
-[4] Scan IP
-[5] Scanlog Search
-[6] Resolve Hostname > IP
-[7] Resolve IP > MAC
-"
+                        [0] Back\t
+                        [1] Get Network Info\t
+                        [2] Get Router Info\t\n
+                        [3] Scan for Hosts on Network\t
+                        [4] Scan IP\t
+                        [5] Scanlog Search\t\n
+                        [6] Resolve Hostname > IP\t
+                        [7] Resolve IP > MAC\t
+                        "
             done
             usr_input=""
         fi

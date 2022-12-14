@@ -5,6 +5,8 @@
 #   Use the WiFiShield.sh script and the Shield Utility
 ###
 
+echo $1 $2
+
 if [ $# != 2 ]
 then
     echo "Do not run this individually; run WifiShield"

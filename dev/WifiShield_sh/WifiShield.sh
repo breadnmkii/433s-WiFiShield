@@ -50,7 +50,7 @@ Shielding: ($SSID)
     printl
     echo "[0] Exit  [1] Network Info Utility    [2] Shield Utility"
     printl
-    getNetinfo
+    
     scanNetwork
     
 }

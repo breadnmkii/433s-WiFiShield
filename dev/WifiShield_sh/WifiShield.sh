@@ -41,8 +41,11 @@ GATEWAY=
 main ()
 {
     #init
-    printl
-    echo -e "
+
+    while [[ $usr_input != "0" ]]
+    do  
+        printl
+        echo -e "
                         ========================
                       <                          >
                     <      WiFi-Shield v0.0.1      >
@@ -52,9 +55,7 @@ main ()
 System: $sys_init
 Shielding: ($SSID)
             \n\n\n\n"
-    echo "Welcome! Select one of the following actions..."
-    while [[ $usr_input != "0" ]]
-    do    
+        echo "Welcome! Select one of the following actions..."
         printUI "[0] Exit\t[1] Network Info Utility\t[2] Shield Utility"
 
         if [[ $usr_input == "1" ]]

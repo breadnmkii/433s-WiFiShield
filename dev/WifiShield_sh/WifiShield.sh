@@ -54,7 +54,7 @@ Shielding: ($SSID)
     echo "[0] Exit  [1] Network Info Utility    [2] Shield Utility"
     printl
 
-    IPtoMAC
+    HOSTtoIP
     
 }
 

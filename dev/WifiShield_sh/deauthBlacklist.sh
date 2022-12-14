@@ -5,7 +5,7 @@
 #   Use the WiFiShield.sh script and the Shield Utility
 ###
 
-if [ $# != 2 || "$EUID" -ne 0 ]
+if [ $# != 2 ]
 then
     echo "Do not run this individually; run WifiShield"
     exit;

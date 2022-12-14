@@ -30,7 +30,7 @@ SCANLOG_PATH="netscan.log"
 BLACKLIST_PATH="blacklist.txt"
 
 ## Globals
-sys_init=""
+sys_init="nominal"
 sys_errors=""
 usr_input=""
 SSID=
@@ -244,7 +244,7 @@ airMonitor() {
 
 # Manual deauthentication of device given MAC address
 deauthMAC() {
-    echo "Target MAC: "
+    echo -n "Target MAC: "
     read TGT_MAC
     aireplay-ng --deauth 1 -c $TGT_MAC -a $WLAN_MAC $WLAN_NAME
 }
@@ -298,9 +298,9 @@ init () {
         sys_errors="${sys_errors}nmap cmd error! "
     fi
     
-    if [[ sys_init == "" ]]
+    if [[ sys_init == "nominal" ]]
     then
-        sys_init="nominal"
+        sys_errors="none"
     fi
 
     # Initialize globals
@@ -311,7 +311,7 @@ init () {
     GATEWAY=$(ip route | grep default | grep $WLAN_NAME | grep -oP '(?<=via )\w+.\w+.\w+.\w+')
     GATEWAY_24=$(ip route | grep default | grep $WLAN_NAME | grep -oP '(?<=via )\w+.\w+.\w+.')
 
-    echo -e "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"
+    echo -e "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"
    
 }
 

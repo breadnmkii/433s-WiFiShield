@@ -111,6 +111,12 @@ searchScanlog() {
 }
 
 # resolve hostname to IP
+HOSTtoIP() {
+    echo -n "Enter hostname: "
+    read HOSTNAME
+    echo "Resolving... "
+    nslookup $HOSTNAME
+}
 
 # resolve IP to MAC
 IPtoMAC() {

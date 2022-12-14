@@ -103,11 +103,11 @@ scanIP() {
     nmap -Pn $NET_SCAN
 }
 
-# Simple search ScanLog for grep matches
+# Simple search ScanLog for sed matches
 searchScanlog() {
     echo -n "Enter key searchterm: "
     read KEY_SEARCH
-    cat $SCANLOG_PATH | grep -A4 $KEY_SEARCH
+    sed -n "'/${KEY_SEARCH}/,/^$/p'" $SCANLOG_PATH
 }
 
 ## Aircrack-ng utility

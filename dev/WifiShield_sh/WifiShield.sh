@@ -132,7 +132,7 @@ init () {
     fi
 
     SSID=$(iwgetid -r)
-    WLAN_NAME=$(iwgetid | grep -o '^.+ ')
+    WLAN_NAME=$(iwgetid | grep -o '^.* ')
     WLAN_MON="${WLAN_NAME}mon"
     GATEWAY=$(ip route | grep default | grep $WLAN_NAME | grep -oP '(?<=via )\w+.\w+.\w+.\w+')
     GATEWAY_24=$(ip route | grep default | grep $WLAN_NAME | grep -oP '(?<=via )\w+.\w+.\w+.')

@@ -25,7 +25,7 @@
 #
 
 ## Globals
-sys_init=
+sys_init="error!"
 SSID=
 WLAN_NAME=
 WLAN_MON=

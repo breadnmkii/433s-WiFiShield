@@ -78,25 +78,25 @@ Shielding: ($SSID)
                         echo "Returning to main menu"
                     ;;
                     "1")
-                        echo "1"
+                        getNetinfo
                     ;;
                     "2")
-                        echo "2"
+                        getRouterinfo
                     ;;
                     "3")
-                        echo "3"
+                        scanNetwork
                     ;;
                     "4")
-                        echo "4"
+                        scanIP
                     ;;
                     "5")
-                        echo "5"
+                        searchScanlog
                     ;;
                     "6")
-                        echo "6"
+                        HOSTtoIP
                     ;;
                     "7")
-                        echo "7"
+                        IPtoMAC
                     ;;
                         *) echo "unrecognized action"
                     ;;
@@ -104,7 +104,7 @@ Shielding: ($SSID)
             done
             usr_input=""
         fi
-        
+
         if [[ $usr_input == "2" ]]
         then
             # Shield Utility

@@ -62,8 +62,7 @@ Shielding: ($SSID)
             # Network Utility
             while [[ $usr_input != "0" ]]
             do
-                printUI 
-"
+                printUI "
 [0] Back
 [1] Get Network Info
 [2] Get Router Info

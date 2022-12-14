@@ -109,42 +109,27 @@ Shielding: ($SSID)
         if [[ $usr_input == "2" ]]
         then
             # Shield Utility
-            echo "WARNING: Shield Utility disables WiFi!"
-            echo "Continue? [Y/n]: "
-            read usr_input
-            if [[ $usr_input == "Y" || $usr_input == "y" ]]
-            then
-                echo "Putting wireless interface into monitor mode..."
-                airmon-ng start $WLAN_NAME
-                WLAN_NAME=$(iwgetid | grep -o '^.* ' | xargs)
-
-                while [[ $usr_input != "0" ]]
-                do
-                    printUI "[0] Back\t[1]Run Blacklist\t[2]Run Whitelist"
-                    case $usr_input in
-                    "0")
-                        echo "Returning to main menu"
-                    ;;
-                    "1")
-                        runBlacklist
-                    ;;
-                    "2")
-                        airMonitor
-                    ;;
-                    "3")
-                        deauthMAC
-                    ;;
-                    *) 
-                        echo "unrecognized action"
-                    ;;
+            while [[ $usr_input != "0" ]]
+            do
+                printUI "[0] Back\t[1] Run Blacklist\t[2] Deauth Mac\t[3] Air-Monitor"
+                case $usr_input in
+                "0")
+                    echo "Returning to main menu"
+                ;;
+                "1")
+                    runBlacklist
+                ;;
+                "2")
+                    deauthMAC
+                ;;
+                "3")
+                    airMonitor
+                ;;
+                *) 
+                    echo "unrecognized action"
+                ;;
                 esac
-                done
-            fi
-
-            echo "Exiting monitor mode..."
-            airmon-ng stop $WLAN_NAME
-            WLAN_NAME=$(iwgetid | grep -o '^.* ' | xargs)
-
+            done
             usr_input=""
         fi
 
@@ -234,9 +219,25 @@ runBlacklist () {
 
 # Enables monitoring of wireless traffic
 airMonitor() {
-    echo $WLAN_NAME
-    echo $WLAN_CHN
-    echo "airodump-ng $WLAN_NAME --bssid $WLAN_MAC --channel $WLAN_CHN"
+    echo "WARNING: Air Monitor disables WiFi!"
+    echo "Continue? [Y/n]: "
+    read usr_input
+    if [[ $usr_input == "Y" || $usr_input == "y" ]]
+    then
+        echo "Putting wireless interface into monitor mode..."
+        #airmon-ng start $WLAN_NAME
+        WLAN_NAME=$(iwgetid | grep -o '^.* ' | xargs)
+
+        echo $WLAN_NAME
+        echo $WLAN_CHN
+        echo "airodump-ng $WLAN_NAME --bssid $WLAN_MAC --channel $WLAN_CHN"
+
+        echo "Exiting monitor mode..."
+        #airmon-ng stop $WLAN_NAME
+        WLAN_NAME=$(iwgetid | grep -o '^.* ' | xargs)
+    else
+        echo "Cancelling Air-Monitor..."
+    fi
 }
 
 # Manual deauthentication of device given MAC address

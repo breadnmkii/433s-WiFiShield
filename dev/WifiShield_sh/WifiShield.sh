@@ -64,6 +64,7 @@ Shielding: ($SSID)
             do
                 printUI "exit"
             done
+            usr_input=""
         fi
 
         if [[ $usr_input == "2" ]]
@@ -79,6 +80,7 @@ Shielding: ($SSID)
                     printUI "exit"
                 done
             fi
+            usr_input=""
         fi
 
 

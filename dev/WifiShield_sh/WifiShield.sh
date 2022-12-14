@@ -55,7 +55,7 @@ Shielding: ($SSID)
     echo "Welcome! Select one of the following actions..."
     while [[ $usr_input != "0" ]]
     do    
-        printUI "[0] Exit  [1] Network Info Utility    [2] Shield Utility"
+        printUI "[0] Exit\t[1] Network Info Utility\t[2] Shield Utility"
 
         if [[ $usr_input == "1" ]]
         then
@@ -86,7 +86,7 @@ Shielding: ($SSID)
             then
                 while [[ $usr_input != "0" ]]
                 do
-                    printUI "exit"
+                    printUI "[0] Back\t[1]Run Blacklist\t[2]Run Whitelist"
                 done
             fi
             usr_input=""

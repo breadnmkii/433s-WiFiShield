@@ -40,7 +40,7 @@ GATEWAY=
 ## Main Script
 main ()
 {
-    init
+    #init
     printl
     echo -e "
                         ========================

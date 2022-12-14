@@ -103,7 +103,9 @@ Shielding: ($SSID)
                 esac
             done
             usr_input=""
-        elif [[ $usr_input == "2" ]]
+        fi
+        
+        if [[ $usr_input == "2" ]]
         then
             # Shield Utility
             echo "WARNING: Shield Utility disables WiFi!"
@@ -117,8 +119,6 @@ Shielding: ($SSID)
                 done
             fi
             usr_input=""
-        else
-            echo "unrecognized action"
         fi
 
 

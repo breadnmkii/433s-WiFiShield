@@ -79,7 +79,7 @@ getNetinfo() {
     echo -en "Gateway:\t"
     echo $GATEWAY
     echo -e "Metadata:"
-    echo -e $(ifconfig $WNAME_CARD)
+    echo -e $(ip link show dev $WLAN_NAME)
 }
 
 # Gets information about router
@@ -152,11 +152,6 @@ init () {
     fi
     
     # Check dependencies
-    if ! command -v ifconfig &> /dev/null
-    then
-        echo "ifconfig command must be available!" 
-        exit
-    fi
     if ! command -v ip &> /dev/null
     then
         echo "ip command must be available!" 

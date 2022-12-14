@@ -149,7 +149,7 @@ getNetinfo() {
     echo "===================="
     echo     "Network Info"
     echo "===================="
-    echo -en "Wireless Card:\t"
+    echo -en "WLAN Interface:\t"
     echo $WLAN_NAME 
     echo -en "Gateway:\t"
     echo $GATEWAY

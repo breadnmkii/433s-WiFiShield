@@ -72,7 +72,7 @@ Shielding: ($SSID)
             echo "WARNING: Shield Utility disables WiFi!"
             echo "Continue? [Y/n]: "
             read usr_input
-            if [[ $usr_input == 'Y' || $usr_input == 'y' ]]
+            if [[ $usr_input == "Y" || $usr_input == "y" ]]
             then
                 while [[ $usr_input != "0" ]]
                 do

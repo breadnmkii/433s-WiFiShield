@@ -39,8 +39,10 @@ main ()
                         ========================
                       <                          >
                     <      WiFi-Shield v0.0.1      >
-                      <     on ($SSID)           >
+                      <                          >
                         ========================
+            
+            active: ($SSID)
             \n\n\n\n\n\n"
     echo "Welcome! Select one of the following actions..."
     printl

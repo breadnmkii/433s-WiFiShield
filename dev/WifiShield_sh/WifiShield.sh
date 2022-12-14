@@ -76,7 +76,7 @@ Shielding: ($SSID)
             then
                 while [[ $usr_input != "0" ]]
                 do
-
+                    printUI "exit"
                 done
             fi
         fi

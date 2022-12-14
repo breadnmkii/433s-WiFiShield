@@ -24,6 +24,9 @@
 #  [2] Run Whitelist    (airodump, deauth any device not matching whitelist mac)
 #
 
+## Constants
+OUTPUT_SCANLOG="netscan.log"
+
 ## Globals
 sys_init="error!"
 SSID=

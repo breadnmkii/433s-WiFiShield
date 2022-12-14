@@ -118,7 +118,7 @@ IPtoMAC() {
     read IP_ADDR
     echo -en "\nResolving...  "
     MAC_ADDR=$(arp -a $IP_ADDR | grep -oP '(?<=at )\w+:\w+:\w+:\w+:\w+:\w+')
-    echo -n "$IP_ADDR > $MAC_ADDR"
+    echo "$IP_ADDR > $MAC_ADDR"
 
 }
 

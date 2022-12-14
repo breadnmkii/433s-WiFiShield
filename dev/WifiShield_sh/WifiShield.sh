@@ -276,14 +276,19 @@ init () {
         echo "ip command must be available!" 
         exit
     fi
-    if ! command -v iw &> /dev/null || ! command -v iwgetid &> /dev/null || ! command -v iwconfig &> /dev/null
+    if [ ! command -v iw &> /dev/null || ! command -v iwgetid &> /dev/null || ! command -v iwconfig &> /dev/null ]
     then
         echo "iw command must be available!" 
         exit
     fi
-    if ! command -v airmon-ng &> /dev/null || ! command -v airodump-ng &> /dev/null || ! command -v aireplay-ng &> /dev/null
+    if [ ! command -v airmon-ng &> /dev/null || ! command -v airodump-ng &> /dev/null || ! command -v aireplay-ng &> /dev/null ]
     then
         echo "Aircrack tools must be installed!" 
+        exit
+    fi
+    if [ ! command -v nmap &> /dev/null ]
+    then
+        echo "nmap tools must be installed!"
         exit
     fi
 

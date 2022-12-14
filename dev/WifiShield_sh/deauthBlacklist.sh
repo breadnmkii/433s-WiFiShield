@@ -5,7 +5,7 @@
 #   Use the WiFiShield.sh script and the Shield Utility
 ###
 
-if [ $# != 2 ]
+if [ $# != 2 || "$EUID" -ne 0 ]
 then
     echo "Do not run this individually; run WifiShield"
     exit;
@@ -31,6 +31,6 @@ while [ true ]
 do
     while read TGT_MAC
     do
-        aireplay-ng --deauth 1 -c $TGT_MAC -a $1 $2 > dev/null 2>&1
+        aireplay-ng --deauth 1 -c $TGT_MAC -a $1 $2 > /dev/null 2>&1
     done < $BLACKLIST_PATH
 done

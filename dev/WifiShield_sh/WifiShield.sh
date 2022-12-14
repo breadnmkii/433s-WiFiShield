@@ -118,7 +118,6 @@ Shielding: ($SSID)
             then
                 echo "Putting wireless interface into monitor mode..."
                 airmon-ng start $WLAN_NAME
-                WLAN_NAME=$(iwgetid | grep -o '^.* ' | xargs)
 
                 while [[ $usr_input != "0" ]]
                 do
@@ -144,8 +143,7 @@ Shielding: ($SSID)
                 usr_input=""
 
                 echo "Exiting monitor mode..."
-                airmon-ng stop $WLAN_NAME
-                WLAN_NAME=$(iwgetid | grep -o '^.* ' | xargs)
+                airmon-ng stop $WLAN_MON
             else
                 echo "Cancelling Shield Utility..."
             fi
@@ -233,20 +231,19 @@ IPtoMAC() {
 ## Aircrack-ng utility
 # Spawns new bash window to deauth MAC addresses listed in "blacklist.txt" file
 runBlacklist () {
-    ./deauthBlacklist.sh "$WLAN_MAC" "$WLAN_NAME"
+    ./deauthBlacklist.sh "$WLAN_MAC" "$WLAN_MON"
 }
 
 # Enables monitoring of wireless traffic
 airMonitor() {
-    airodump-ng $WLAN_NAME --bssid $WLAN_MAC --channel $WLAN_CHN
+    airodump-ng $WLAN_MON --bssid $WLAN_MAC --channel $WLAN_CHN
 }
 
 # Manual deauthentication of device given MAC address
 deauthMAC() {
     echo -n "Target MAC: "
     read TGT_MAC
-    echo "aireplay-ng --deauth 1 -c $TGT_MAC -a $WLAN_MAC $WLAN_NAME"
-    aireplay-ng --deauth 1 -c $TGT_MAC -a $WLAN_MAC $WLAN_NAME
+    aireplay-ng --deauth 1 -c $TGT_MAC -a $WLAN_MAC $WLAN_MON
 }
 
 ## Helper utility
@@ -307,6 +304,7 @@ init () {
     # Initialize globals
     SSID=$(iwgetid -r)
     WLAN_NAME=$(iwgetid | grep -o '^.* ' | xargs)
+    WLAN_MON="${WLAN_NAME}mon"
     WLAN_MAC=$(iwgetid -ar)
     WLAN_CHN=$(iw dev $WLAN_NAME info | grep -oP '(?<=channel )\d+')
     GATEWAY=$(ip route | grep default | grep $WLAN_NAME | grep -oP '(?<=via )\w+.\w+.\w+.\w+')

@@ -79,17 +79,11 @@ getRouterinfo() {
 scanNetwork() {
     echo -n "Range to scan (e.g. 0-31, or empty for 0-255): "
     read NET_RANGE
-    echo $WLAN_NAME
-    echo $WLAN_MON
-    echo $GATEWAY_24
-    echo $NET_RANGE
     if [ -z $NET_RANGE ]
     then
-        echo "what"
 	    echo "Scanning ${GATEWAY_24}0-255...";
         nmap -sS "${GATEWAY_24}0/24" > netscan.log
     else
-        echo "fuck"
         echo "Scanning ${GATEWAY_24}${NET_RANGE}...";
         nmap -sS "${GATEWAY_24}${NET_RANGE}" > netscan.log
     fi

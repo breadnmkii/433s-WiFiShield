@@ -12,7 +12,7 @@
 # [1] Get Network info                  √
 # [2] Get Router info                   √
 # [3] Scan for hosts on network         √
-# [4] Scan IP                           
+# [4] Scan IP                           √    
 # [5] Scanlog Search
 # [6] Resolve Hostname > IP
 # [7] Resolve IP > MAC
@@ -98,6 +98,13 @@ scanIP() {
     echo -n "IP to port scan: "
     read NET_SCAN
     nmap -Pn $NET_SCAN
+}
+
+# Simple search ScanLog for grep matches
+grepScanlog() {
+    echo -n "Enter key searchterm: "
+    read KEY_SEARCH
+    cat scanlog.log | grep ${KEY_SEARCH}
 }
 
 ## Aircrack-ng utility

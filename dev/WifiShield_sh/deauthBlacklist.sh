@@ -7,7 +7,8 @@
 
 if [ $# != 2 ]
 then
-    echo "DO NOT RUN THIS MANUALLY"
+    echo "Do not run this individually; run WifiShield"
+    exit;
 fi
 
 # @param

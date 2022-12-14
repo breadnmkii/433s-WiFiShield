@@ -13,7 +13,7 @@
 # [2] Get Router info                   √
 # [3] Scan for hosts on network         √
 # [4] Scan IP                           √    
-# [5] Scanlog Search
+# [5] Scanlog Search                    √
 # [6] Resolve Hostname > IP
 # [7] Resolve IP > MAC
 
@@ -108,6 +108,17 @@ searchScanlog() {
     echo -n "Enter key searchterm: "
     read KEY_SEARCH
     sed -n "/${KEY_SEARCH}/,/^$/p" "$SCANLOG_PATH"
+}
+
+# resolve hostname to IP
+
+# resolve IP to MAC
+IPtoMAC() {
+    echo "Enter IP address: "
+    read IP_ADDR
+    MAC_ADDR=$(arp -a $IP_ADDR | grep -oP '(?<=at )\w+')
+    echo -n "$IP_ADDR > $MAC_ADDR"
+
 }
 
 ## Aircrack-ng utility

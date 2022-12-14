@@ -135,7 +135,7 @@ init () {
     GATEWAY=$(ip route | grep default | grep $WLAN_NAME | grep -oP '(?<=via )\w+.\w+.\w+.\w+')
     GATEWAY_24=$(ip route | grep default | grep $WLAN_NAME | grep -oP '(?<=via )\w+.\w+.\w+.')
 
-    sys_init="1"
+    sys_init="nomial"
 }
 
 

@@ -25,6 +25,7 @@
 #
 
 ## Globals
+sys_init=
 SSID=
 WLAN_NAME=
 WLAN_MON=
@@ -41,7 +42,7 @@ main ()
                     <      WiFi-Shield v0.0.1      >
                       <                          >
                         ========================
-System: initialized 
+System: ${if [ $init ] then echo "nominal" else "error!" }
 Shielding: ($SSID)
             \n\n\n\n\n\n"
     echo "Welcome! Select one of the following actions..."
@@ -133,6 +134,8 @@ init () {
     WLAN_MON="${WLAN_NAME}mon"
     GATEWAY=$(ip route | grep default | grep $WLAN_NAME | grep -oP '(?<=via )\w+.\w+.\w+.\w+')
     GATEWAY_24=$(ip route | grep default | grep $WLAN_NAME | grep -oP '(?<=via )\w+.\w+.\w+.')
+
+    sys_init="1"
 }
 
 

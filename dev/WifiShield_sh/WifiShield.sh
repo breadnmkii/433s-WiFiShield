@@ -162,8 +162,20 @@ IPtoMAC() {
 ## Aircrack-ng utility
 
 ## Helper utility
+printl () {
+    echo -e "______________________________________________________________________________________" 
+}
 
-# Initializes script variables
+printUI () {
+    printl
+    echo $1
+    printl
+    echo -n "Select: "
+    read usr_input
+}
+
+
+## Program initializer
 init () {
     # Check if ran as root
     if [ "$EUID" -ne 0 ]
@@ -200,14 +212,6 @@ init () {
     sys_init="nominal"
 }
 
-
-printl () {
-    echo -e "______________________________________________________________________________________" 
-}
-
-printUI () {
-    
-}
 
 ## Execute script
 main

@@ -97,12 +97,7 @@ scanNetwork() {
 scanIP() {
     echo -n "IP to port scan: "
     read NET_SCAN
-    if [ -z NET_SCAN ]
-    then
-        echo "Exiting scan..."
-    else
-        nmap -Pn $NET_SCAN
-    fi
+    nmap -Pn $NET_SCAN
 }
 
 ## Aircrack-ng utility

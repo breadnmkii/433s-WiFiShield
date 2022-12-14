@@ -27,7 +27,7 @@ echo "Deauthing MAC addresses: "
 while read TGT_MAC
 do
     echo $TGT_MAC
-done
+done < $BLACKLIST_PATH
 echo "Press CTRL+C to terminate..."
 while [ true ]
 do

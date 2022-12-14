@@ -51,7 +51,7 @@ Shielding: ($SSID)
     echo "[0] Exit  [1] Network Info Utility    [2] Shield Utility"
     printl
 
-    scanIP
+    searchScanlog
     
 }
 
@@ -101,7 +101,7 @@ scanIP() {
 }
 
 # Simple search ScanLog for grep matches
-grepScanlog() {
+searchScanlog() {
     echo -n "Enter key searchterm: "
     read KEY_SEARCH
     cat scanlog.log | grep ${KEY_SEARCH}

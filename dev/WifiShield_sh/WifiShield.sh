@@ -122,7 +122,7 @@ HOSTtoIP() {
 IPtoMAC() {
     echo -n "Enter IP address: "
     read IP_ADDR
-    echo -en "\nResolving... "
+    echo "Resolving..."
     MAC_ADDR=$(arp -a $IP_ADDR | grep -oP '(?<=at )\w+:\w+:\w+:\w+:\w+:\w+')
     echo "$IP_ADDR > $MAC_ADDR"
 

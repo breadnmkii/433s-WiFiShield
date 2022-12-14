@@ -30,7 +30,7 @@ do
 done < $BLACKLIST_PATH
 echo "Hold 'q' key to terminate..."
 usr_input=""
-while [[ usr_input != "q" ]]
+while [[ $usr_input != "q" ]]
 do
     read -rsn1 usr_input
     while read TGT_MAC

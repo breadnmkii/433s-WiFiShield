@@ -30,7 +30,7 @@ SCANLOG_PATH="netscan.log"
 BLACKLIST_PATH="blacklist.txt"
 
 ## Globals
-sys_init="error!"
+sys_init=""
 usr_input=""
 SSID=
 WLAN_NAME=
@@ -273,28 +273,27 @@ init () {
     # Check dependencies
     if ! command -v ip &> /dev/null
     then
-        echo "ip command must be available!" 
-        exit
+        echo "ip command must be available!"
+        sys_init="error!"
     fi
-    if [ ! command -v iw &> /dev/null || ! command -v iwgetid &> /dev/null || ! command -v iwconfig &> /dev/null ]
+    if ! command -v iw &> /dev/null || ! command -v iwgetid &> /dev/null || ! command -v iwconfig &> /dev/null
     then
         echo "iw command must be available!" 
-        exit
+        sys_init="error!"
     fi
-    if [ ! command -v airmon-ng &> /dev/null || ! command -v airodump-ng &> /dev/null || ! command -v aireplay-ng &> /dev/null ]
+    if ! command -v airmon-ng &> /dev/null || ! command -v airodump-ng &> /dev/null || ! command -v aireplay-ng &> /dev/null
     then
         echo "Aircrack tools must be installed!" 
-        exit
+        sys_init="error!"
     fi
-    if [ ! command -v nmap &> /dev/null ]
+    if ! command -v nmap &> /dev/null
     then
         echo "nmap tools must be installed!"
-        exit
+        sys_init="error!"
     fi
+    sys_init="nominal"
 
-    # Check files
-
-
+    # Initialize globals
     SSID=$(iwgetid -r)
     WLAN_NAME=$(iwgetid | grep -o '^.* ' | xargs)
     WLAN_MAC=$(iwgetid -ar)
@@ -302,7 +301,7 @@ init () {
     GATEWAY=$(ip route | grep default | grep $WLAN_NAME | grep -oP '(?<=via )\w+.\w+.\w+.\w+')
     GATEWAY_24=$(ip route | grep default | grep $WLAN_NAME | grep -oP '(?<=via )\w+.\w+.\w+.')
 
-    sys_init="nominal"
+    
 }
 
 

@@ -65,7 +65,7 @@ getNetinfo() {
     echo $WLAN_NAME 
     echo -en "Gateway:\t"
     echo $GATEWAY
-    echo -e "Specific Info:"
+    echo -e "Metadata:"
     echo -e $(ifconfig $WNAME_CARD)
 }
 

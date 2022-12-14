@@ -80,7 +80,7 @@ scanNetwork() {
     read network_range
     if [ -z $network_range ]
     then
-        nmap 
+        echo $GATEWAY_24
     else
         echo "you passed in $network_range"
     fi

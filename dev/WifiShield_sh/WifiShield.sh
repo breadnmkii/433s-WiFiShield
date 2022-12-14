@@ -55,11 +55,32 @@ Shielding: ($SSID)
     echo "Welcome! Select one of the following actions..."
     while [[ $usr_input != "0" ]]
     do    
-        printl
-        echo "[0] Exit  [1] Network Info Utility    [2] Shield Utility"
-        printl
-        echo -n "Select: "
-        read usr_input
+        printUI "[0] Exit  [1] Network Info Utility    [2] Shield Utility"
+
+        if [[ $usr_input == "1" ]]
+        then
+            # Network Utility
+            while [[ $usr_input != "0" ]]
+            do
+
+            done
+        fi
+
+        if [[ $usr_input == "2" ]]
+        then
+            # Shield Utility
+            echo "WARNING: Shield Utility disables WiFi!"
+            echo "Continue? [Y/n]: "
+            read usr_input
+            if [[ $usr_input == 'Y' || $usr_input == 'y']]
+            then
+                while [[ $usr_input != "0" ]]
+                do
+
+                done
+            fi
+        fi
+
 
     done
     
@@ -182,6 +203,10 @@ init () {
 
 printl () {
     echo -e "______________________________________________________________________________________" 
+}
+
+printUI () {
+    
 }
 
 ## Execute script

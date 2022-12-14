@@ -163,6 +163,7 @@ getRouterinfo() {
     echo     "Router Info"
     echo "===================="
     iwconfig $WLAN_NAME
+    iw dev $WLAN_NAME info
 }
 
 ## Nmap utility
@@ -307,7 +308,7 @@ init () {
     SSID=$(iwgetid -r)
     WLAN_NAME=$(iwgetid | grep -o '^.* ' | xargs)
     WLAN_MAC=$(iwgetid -ar)
-    WLAN_CHN=$(iw dev | grep -oP '(?<=channel )\d+')
+    WLAN_CHN=$(iw dev $WLAN_NAME info | grep -oP '(?<=channel )\d+')
     GATEWAY=$(ip route | grep default | grep $WLAN_NAME | grep -oP '(?<=via )\w+.\w+.\w+.\w+')
     GATEWAY_24=$(ip route | grep default | grep $WLAN_NAME | grep -oP '(?<=via )\w+.\w+.\w+.')
 

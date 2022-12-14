@@ -5,6 +5,11 @@
 #   Use the WiFiShield.sh script and the Shield Utility
 ###
 
+if [ $# != 2 ]
+then
+    echo "DO NOT RUN THIS MANUALLY"
+fi
+
 # @param
 # $1: $WLAN_MAC
 # $2: $WLAN_NAME

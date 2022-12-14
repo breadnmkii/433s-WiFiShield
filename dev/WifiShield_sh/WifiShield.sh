@@ -62,7 +62,7 @@ Shielding: ($SSID)
             # Network Utility
             while [[ $usr_input != "0" ]]
             do
-
+                printUI "exit"
             done
         fi
 

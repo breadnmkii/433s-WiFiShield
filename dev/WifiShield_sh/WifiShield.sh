@@ -107,7 +107,7 @@ scanIP() {
 searchScanlog() {
     echo -n "Enter key searchterm: "
     read KEY_SEARCH
-    sed -n "'/${KEY_SEARCH}/,/^$/p'" $SCANLOG_PATH
+    sed -n '/${KEY_SEARCH}/,/^$/p' $SCANLOG_PATH
 }
 
 ## Aircrack-ng utility

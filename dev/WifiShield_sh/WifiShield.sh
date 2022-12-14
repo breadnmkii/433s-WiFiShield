@@ -42,7 +42,7 @@ main ()
                       <                          >
                         ========================
             
-            active: ($SSID)
+                            active on: ($SSID)
             \n\n\n\n\n\n"
     echo "Welcome! Select one of the following actions..."
     printl

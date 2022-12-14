@@ -42,7 +42,7 @@ main ()
                     <      WiFi-Shield v0.0.1      >
                       <                          >
                         ========================
-System: ${if [ $init ] then echo "nominal" else "error!" }
+System: $sys_init
 Shielding: ($SSID)
             \n\n\n\n\n\n"
     echo "Welcome! Select one of the following actions..."

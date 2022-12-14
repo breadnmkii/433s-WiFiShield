@@ -256,6 +256,7 @@ printl () {
 }
 
 printUI () {
+    echo -e "\n\n"
     printl
     echo -e $1
     printl

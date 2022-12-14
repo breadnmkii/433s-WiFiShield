@@ -81,7 +81,7 @@ scanNetwork() {
     read network_range
     if [ -z $network_range ]
     then
-		echo "Scanning ${GATEWAY_24}0-255...";
+	echo "Scanning ${GATEWAY_24}0-255...";
         nmap -sS "${GATEWAY_24}0/24" > netscan.log
     else
 		echo "Scanning ${GATEWAY_24}${network_range}...";

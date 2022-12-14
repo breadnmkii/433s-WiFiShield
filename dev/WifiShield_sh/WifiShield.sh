@@ -238,13 +238,14 @@ runBlacklist () {
 
 # Enables monitoring of wireless traffic
 airMonitor() {
-        echo "airodump-ng $WLAN_NAME --bssid $WLAN_MAC --channel $WLAN_CHN"
+    airodump-ng $WLAN_NAME --bssid $WLAN_MAC --channel $WLAN_CHN
 }
 
 # Manual deauthentication of device given MAC address
 deauthMAC() {
     echo -n "Target MAC: "
     read TGT_MAC
+    echo "aireplay-ng --deauth 1 -c $TGT_MAC -a $WLAN_MAC $WLAN_NAME"
     aireplay-ng --deauth 1 -c $TGT_MAC -a $WLAN_MAC $WLAN_NAME
 }
 

@@ -1,3 +1,5 @@
-This directory will include any testing program prototypes and serves as an isolated directory environment
+This directory includes experimental test results from the WiFiShield appication.
 
-DO NOT CREATE DEPENDENCIES BETWEEN THIS DIRECTORY AND OTHERS!
+* scans: includes Nmap scan results from various networks
+* Screenshots: includes screenshots taken from the application execution
+* Videos: Visual demonstrations of application

@@ -73,6 +73,29 @@ Shielding: ($SSID)
                         [6] Resolve Hostname > IP\t
                         [7] Resolve IP > MAC\t
                         "
+                case $usr_input in
+
+                    "1")
+                        echo "1"
+                    ;;
+                    "2")
+                        echo "1"
+                    ;;
+                    "3")
+                        echo "1"
+                    ;;
+                    "4")
+                        echo "1"
+                    ;;
+                    "5")
+                        echo "1"
+                    ;;
+                    "6")
+                        echo "1"
+                    ;;
+                    "7")
+                        echo "1"
+                    ;;
             done
             usr_input=""
         fi

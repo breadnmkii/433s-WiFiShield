@@ -50,8 +50,8 @@ Shielding: ($SSID)
     printl
     echo "[0] Exit  [1] Network Info Utility    [2] Shield Utility"
     printl
-    
-    scanNetwork
+
+    scanIP
     
 }
 
@@ -91,9 +91,19 @@ scanNetwork() {
         nmap -sS "${GATEWAY_24}${NET_RANGE}" > netscan.log
     fi
 	echo "Scanning complete! Check netscan.log or use Scanlog Search"
-    
 }
 
+# Scans specified ip
+scanIP() {
+    echo -n "IP to port scan: "
+    read NET_SCAN
+    if [ -z NET_SCAN ]
+    then
+        echo "Exiting scan..."
+    else
+        nmap -Pn $NET_SCAN
+    fi
+}
 
 ## Aircrack-ng utility
 

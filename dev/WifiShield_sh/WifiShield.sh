@@ -66,7 +66,7 @@ getNetinfo() {
     echo -en "Gateway:\t"
     echo $GATEWAY
     echo -e "Metadata:"
-    echo -en $(ifconfig $WNAME_CARD)
+    echo -e $(ifconfig $WNAME_CARD)
 }
 
 # Gets information about router
